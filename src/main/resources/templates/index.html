@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list of people</title>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div id="task-form">
+        <form>
+            <h2>Добавление человека</h2>
+            <label>Имя человека</label>
+            <input type="text" name="header" value="">
+            <label>Имя</label>
+            <input type="text" name="first_name" value="">
+            <label>Отчество (если есть)</label>
+            <input type="text" name="patronymic" value="">
+            <label>Фамилия</label>
+            <input type="text" name="last_name" value="">
+            <label>Дата рождения</label>
+            <input type="text" name="birthday" value="">
+            <label>Пол</label>
+            <input type="text" name="sex" value="">
+            <hr>
+            <button id="save-task">Сохранить</button>
+        </form>
+    </div>
+    <div id="task-put-form">
+        <form>
+        </form>
+    </div>
+    <div class="experiment"></div>
+    <h1>Список людей (<span th:text="${tasksCount}">0</span>)</h1>
+    <button id="show-add-task-form">Добавить человека</button>
+    <br><br>
+    <div id="task-list">
+        <div th:each="people : ${peoples}">
+            <a href="#" class="task-link" th:attr="data-id=${people.id}" th:text="${people.first_name}"></a>
+        </div>
+    </div>
+</body>
+</html>
